@@ -12,7 +12,7 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 
-st.title("Time Series Forecasting Web App")
+st.title("BitCoin (BTC) Forecasting Web App")
 
 uploaded_file = st.file_uploader("Upload a CSV file containing a time series dataset", type="csv")
 
