@@ -40,7 +40,9 @@ def plot_forecast(original_dates, original_values, forecast_dates, forecast_valu
     st.pyplot(fig)
 
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file, index_col=0) # Assuming first column is date/index
+    df = pd.read_csv(uploaded_file, index_col=0, parse_dates=True, infer_datetime_format=True) # Assuming first column is date/index
+    # Convert Unix timestamps (seconds since epoch) to datetime
+    df.index = pd.to_datetime(df.index, unit='s')  # 's' for seconds
     st.subheader("Uploaded Data")
     st.dataframe(df.head())
 
